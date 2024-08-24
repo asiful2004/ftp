@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/logo (2).png" type="image/x-icon">
+    <title>Video Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+            <img src="image/logo.gif" alt="Site Logo" class="logo">
+        </a>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#videos">Videos</a>
+            <a href="#about">About</a>
+            <a href="http://asiful830.xyz/">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="video-players-container">
+            <section class="video-player">
+                <video id="video-player-1" controls>
+                    <source id="video-source-1" src="video/video-1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section class="video-player">
+                <video id="video-player-2" controls>
+                    <source id="video-source-2" src="video/video-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <!-- Add more video-player sections as needed -->
+        </section>
+
+
+        <div id="comments-list">
+            <!-- Example Comment -->
+            <div class="comment" data-id="1">
+                <p><strong>User1</strong></p>
+                <p>This is a sample comment.</p>
+                <button class="like-button">👍 <span class="like-count">0</span></button>
+                <button class="dislike-button">👎 <span class="dislike-count">0</span></button>
+                <button class="delete-comment">Delete</button>
+            </div>
+            <!-- More comments will be added dynamically -->
+        </div>
+        
+        <!-- Comment Form -->
+        <form id="comment-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="comment" placeholder="Add a comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        
+        
+        
+
+    </main>
+    <!-- footer section start -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html">
+                <img src="image/logo.gif" alt="Site Logo">
+                </a>
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="image/facebook.gif" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://discord.com" target="_blank" aria-label="Twitter">
+                    <img src="image/discord.gif" alt="Discord" class="social-icon">
+                </a>
+                <a href="https://youtube.com" target="_blank" aria-label="Instagram">
+                    <img src="image/youtube.gif" alt="Youtube" class="social-icon">
+                </a>
+                <!-- Add more social icons as needed -->
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 Video Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+    <!-- script start for storage comment -->
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const commentForm = document.getElementById('comment-form');
+    const commentsList = document.getElementById('comments-list');
+
+    // Load existing comments and likes/dislikes from localStorage (or any storage method)
+    function loadComments() {
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        commentsList.innerHTML = ''; // Clear existing comments
+        storedComments.forEach(comment => addCommentToDOM(comment));
+    }
+
+    // Function to add a comment to the DOM
+    function addCommentToDOM(comment) {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.dataset.id = comment.id;
+        commentDiv.innerHTML = `
+            <p><strong>${comment.username}</strong></p>
+            <p>${comment.text}</p>
+            <button class="like-button">👍 <span class="like-count">${comment.likes}</span></button>
+            <button class="dislike-button">👎 <span class="dislike-count">${comment.dislikes}</span></button>
+            <button class="delete-comment">Delete</button>
+        `;
+
+        commentsList.appendChild(commentDiv);
+
+        // Add event listeners for like, dislike, and delete buttons
+        commentDiv.querySelector('.like-button').addEventListener('click', () => handleLike(comment.id));
+        commentDiv.querySelector('.dislike-button').addEventListener('click', () => handleDislike(comment.id));
+        commentDiv.querySelector('.delete-comment').addEventListener('click', () => handleDelete(comment.id));
+    }
+
+    // Handle comment submission
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const commentText = document.getElementById('comment').value;
+
+        const comment = {
+            id: Date.now(),
+            username,
+            email,
+            text: commentText,
+            likes: 0,
+            dislikes: 0
+        };
+
+        // Save comment in localStorage (or any storage method)
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        storedComments.push(comment);
+        localStorage.setItem('comments', JSON.stringify(storedComments));
+
+        addCommentToDOM(comment);
+
+        // Reset form
+        commentForm.reset();
+    });
+
+    // Handle like button click
+    function handleLike(commentId) {
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        const comment = storedComments.find(c => c.id === commentId);
+        comment.likes++;
+        localStorage.setItem('comments', JSON.stringify(storedComments));
+        loadComments(); // Reload comments to update UI
+    }
+
+    // Handle dislike button click
+    function handleDislike(commentId) {
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        const comment = storedComments.find(c => c.id === commentId);
+        comment.dislikes++;
+        localStorage.setItem('comments', JSON.stringify(storedComments));
+        loadComments(); // Reload comments to update UI
+    }
+
+    // Handle delete button click
+    function handleDelete(commentId) {
+        let storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        storedComments = storedComments.filter(c => c.id !== commentId);
+        localStorage.setItem('comments', JSON.stringify(storedComments));
+        loadComments(); // Reload comments to update UI
+    }
+
+    // Load comments on page load
+    loadComments();
+});
+
+    </script>
+        
+
+    <!-- script end for storage comment -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+/* Define root colors */
+:root {
+    --background-color: #121212;
+    --header-background: #1f1f1f;
+    --text-color: #e0e0e0;
+    --video-player-background: #1f1f1f;
+    --button-background: #007bff;
+    --button-hover-background: #0056b3;
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Basic reset */
+body, h1, h2, p, video, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Body and general layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 150px; /* Adjust as needed */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar a {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover {
+    background-color: var(--button-background);
+}
+
+/* Main content */
+main {
+    padding: 1rem;
+    margin: 0 auto; /* Center the main content */
+    max-width: 1200px; /* Optional: Restrict the width of the main content */
+}
+
+/* Container for video players */
+.video-players-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows videos to wrap to the next line if necessary */
+    gap: 5px; /* 5px gap between items */
+    justify-content: center; /* Center the video players */
+}
+
+/* Video player section */
+.video-player {
+    background: var(--video-player-background);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    margin: 0 5px; /* 5px spacing between video players */
+    flex: 0 0 30%; /* 30% width for each video player */
+    box-sizing: border-box; /* Ensures padding and margins are included in width */
+}
+
+/* Ensure video elements fit their containers */
+video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo img {
+    width: 100px; /* Adjust size as needed */
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-social .social-icon {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Ensure the height matches the width for a square aspect ratio */
+    /* Removed the transform and transition properties to disable rotation */
+}
+
+.footer-social .social-icon:hover {
+    /* Only box-shadow will be applied on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.footer-info {
+    margin-top: 1rem;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--video-player-background);
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+.comments-section h2 {
+    margin-bottom: 1rem;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#comment-form input, #comment-form textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+#comment-form button {
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--button-background);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#comment-form button:hover {
+    background-color: var(--button-hover-background);
+}
+
+#comments-list {
+    margin-top: 1rem;
+}
+
+.comment {
+    padding: 1rem;
+    border-bottom: 1px solid var(--text-color);
+    position: relative;
+}
+
+.comment p {
+    margin: 0 0 0.5rem;
+}
+
+.comment button {
+    background: var(--button-background);
+    color: var(--text-color);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-right: 0.5rem;
+}
+
+.comment button:hover {
+    background: var(--button-hover-background);
+}
+
+.comment .likes-count, .comment .dislikes-count {
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-player {
+        flex: 0 0 45%; /* Increase width for smaller screens */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a {
+        padding: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 80px; /* Smaller logo for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-player {
+        flex: 0 0 90%; /* Full-width video player for very small screens */
+    }
+
+    .logo {
+        width: 120px; /* Smaller logo for smaller screens */
+    }
+}
+
+
+body {
+    background: url('image/bg.gif') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff; /* Adjust text color as needed */
+}
